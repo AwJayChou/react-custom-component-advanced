@@ -3,40 +3,50 @@ import FormPage from "./pages/FormPage";
 import MyFormPage from "./pages/MyFormPage";
 import { DialogPage } from "./pages/DialogPage";
 import ReduxPage from "./pages/ReduxPage";
-import Tree from './pages/Tree'
-// function f1(arg) {
-//   console.log("f1", arg);
-//   return arg;
-// }
-// function f2(arg) {
-//   console.log("f2", arg);
-//   return arg;
-// }
-// function f3(arg) {
-//   console.log("f3", arg);
-//   return arg;
-// }
-
-// console.log(compose(f1, f2, f3)("omg"));
-
-// function compose(...funcs) {
-//   const len = funcs.length;
-//   if (len === 0) {
-//     return arg => arg;
-//   }
-//   if (len === 1) {
-//     return funcs[0];
-//   }
-//   return funcs.reduce((a, b) => (...args) => a(b(...args)));
-// }
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  // useHistory,
+  // useLocation,
+  // useRouteMatch,
+  // useParams,
+  // withRouter
+} from "./custom-react-router-dom";
 
 function App() {
   return (
     <div className="App">
+      <Router>
+        <Link to="/">FormPage</Link>
+        <Link to="/MyFormPage">MyFormPage</Link>
+        <Link to="/DialogPage">DialogPage</Link>
+        <Link to="/ReduxPage">ReduxPage</Link>
+
+        <Switch>
+          <Route
+            exact
+            path="/"
+            // children={() => <h1>children</h1>}
+            component={FormPage}
+            // render={() => <h1>render</h1>}
+          />
+
+          {/* <PrivateRoute path="/user" component={UserPage} /> */}
+          {/* <Route path="/user" component={UserPage}>
+            {/* <div>userpage</div> */}
+          {/* </Route> */}
+          <Route path="/MyFormPage" component={MyFormPage} />
+          <Route path="/DialogPage" render={() => <DialogPage />} />
+          <Route path="/ReduxPage" component={ReduxPage} />
+        </Switch>
+      </Router>
       {/* <FormPage /> */}
       {/* <MyFormPage /> */}
       {/* <DialogPage /> */}
-      <Tree />
+      {/* <Tree /> */}
+      {/* <ReduxPage /> */}
     </div>
   );
 }
