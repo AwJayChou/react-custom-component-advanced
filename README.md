@@ -12,6 +12,8 @@ npm i // or yarn
 npm start // or yarn start
 ```
 
+## docs
+https://www.yuque.com/jaychou/dg5wu7/haofnl
 
 
 ## react-router-dom
