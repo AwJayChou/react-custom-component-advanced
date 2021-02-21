@@ -12,6 +12,7 @@ export default class Router extends Component {
   }
   constructor(props) {
     super(props);
+    console.log('props.history=>', props.history)
     this.state = {
       location: props.history.location
     };
